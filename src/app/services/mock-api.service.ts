@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Restaurant, MenuItem } from '.././shared/models/restaurant.model';
-import { LoginResponse } from '.././shared/models/user.model';
-import { Order } from '.././shared/models/order.model';
+import { Restaurant, MenuItem, MenuCategory, OpeningHours, TimeRange } from '../shared/models/restaurant.model';
+import { LoginResponse } from '../shared/models/user.model';
+import { Order } from '../shared/models/order.model';
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +35,7 @@ export class MockApiService {
         description: 'Authentic Japanese sushi and sashimi',
         image: 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c',
         coverImage: 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c',
-        cuisine: ['Japanese', 'Asian'],
+        cuisine: ['Japanese', 'Thai'],
         rating: 4.8,
         totalReviews: 850,
         deliveryTime: '25-35 min',
@@ -123,15 +123,7 @@ export class MockApiService {
         tax: 2.40,
         total: 35.37,
         status: 'delivered',
-        deliveryAddress: {
-          id: 'addr1',
-          type: 'home',
-          street: '123 Main St',
-          city: 'Food City',
-          state: 'FC',
-          zipCode: '12345',
-          isDefault: true
-        },
+        deliveryAddress: '123 Main St, Food City',
         paymentMethod: {
           type: 'card',
           details: { last4: '4242', brand: 'Visa' }

@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError, of } from 'rxjs';
 import { catchError, retry, timeout, delay } from 'rxjs/operators';
-import { environment } from '.././environments/environment';
+import { environment } from '../environments/environment';
 
 export interface ApiOptions {
   headers?: HttpHeaders | { [header: string]: string | string[] };

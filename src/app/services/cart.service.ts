@@ -1,7 +1,7 @@
 import { Injectable, inject, signal, computed } from '@angular/core';
 import { ApiService } from './api.service';
-import { Cart, CartItem, SelectedCustomization } from '.././shared/models/order.model';
-import { MenuItem } from '.././shared/models/restaurant.model';
+import { Cart, CartItem, SelectedCustomization } from '../shared/models/order.model';
+import { MenuItem } from '../shared/models/restaurant.model';
 import { Observable, map, tap } from 'rxjs';
 
 @Injectable({

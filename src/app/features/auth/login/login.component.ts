@@ -2,7 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -59,6 +59,7 @@ import { AuthService } from '../../services/auth.service';
           </button>
         </form>
 
+        <p class="demo-note">Demo Credentials: demo@example.com / demo123</p>
         <p class="auth-link">
           Don't have an account? <a routerLink="/auth/register">Sign Up</a>
         </p>
@@ -161,7 +162,16 @@ import { AuthService } from '../../services/auth.service';
         cursor: not-allowed;
       }
     }
-
+    .demo-note {
+      background: #e7f3ff;
+      border: 1px solid #91d5ff;
+      color: #0050b3;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
     .auth-link {
       text-align: center;
       margin-top: 16px;

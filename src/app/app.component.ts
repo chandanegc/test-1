@@ -112,10 +112,10 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
       text-decoration: none;
       font-weight: 500;
       transition: color 0.2s;
+    }
 
-      &:hover, &.active {
-        color: #667eea;
-      }
+    .navbar__link:hover, .navbar__link.active {
+      color: #667eea;
     }
 
     .navbar__actions {
@@ -130,26 +130,26 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
       text-decoration: none;
       font-weight: 500;
       transition: all 0.2s;
+    }
 
-      &--primary {
-        background: #667eea;
-        color: white;
+    .navbar__btn--primary {
+      background: #667eea;
+      color: white;
+    }
 
-        &:hover {
-          background: #5a67d8;
-        }
-      }
+    .navbar__btn--primary:hover {
+      background: #5a67d8;
+    }
 
-      &--outline {
-        background: transparent;
-        color: #667eea;
-        border: 1px solid #667eea;
+    .navbar__btn--outline {
+      background: transparent;
+      color: #667eea;
+      border: 1px solid #667eea;
+    }
 
-        &:hover {
-          background: #667eea;
-          color: white;
-        }
-      }
+    .navbar__btn--outline:hover {
+      background: #667eea;
+      color: white;
     }
 
     .navbar__cart {

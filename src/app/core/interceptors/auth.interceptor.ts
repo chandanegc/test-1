@@ -1,13 +1,13 @@
 import { inject } from '@angular/core';
-import { HttpInterceptorFn, HttpErrorResponse } from '@angular/common/http';
-import { throwError, BehaviorSubject } from 'rxjs';
+import { HttpInterceptorFn, HttpErrorResponse, HttpEvent, HttpRequest, HttpHandlerFn } from '@angular/common/http';
+import { throwError, BehaviorSubject, Observable } from 'rxjs';
 import { catchError, filter, take, switchMap } from 'rxjs/operators';
 import { AuthService } from '../../services/auth.service';
 
 let isRefreshing = false;
 let refreshTokenSubject = new BehaviorSubject<string | null>(null);
 
-export const authInterceptor: HttpInterceptorFn = (req, next) => {
+export const authInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next: HttpHandlerFn): Observable<HttpEvent<any>> => {
   const authService = inject(AuthService);
 
   // Skip token for auth endpoints
@@ -31,7 +31,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   );
 };
 
-function addTokenToRequest(request: any, token: string): any {
+function addTokenToRequest(request: HttpRequest<any>, token: string): HttpRequest<any> {
   return request.clone({
     setHeaders: {
       Authorization: `Bearer ${token}`
@@ -39,7 +39,7 @@ function addTokenToRequest(request: any, token: string): any {
   });
 }
 
-function handle401Error(request: any, next: any, authService: AuthService): any {
+function handle401Error(request: HttpRequest<any>, next: HttpHandlerFn, authService: AuthService): Observable<HttpEvent<any>> {
   if (!isRefreshing) {
     isRefreshing = true;
     refreshTokenSubject.next(null);

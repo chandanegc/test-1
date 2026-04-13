@@ -2,7 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -13,6 +13,8 @@ import { AuthService } from '../../services/auth.service';
       <div class="auth-card">
         <h2>Create Account</h2>
         <p class="subtitle">Join FoodDelivery today</p>
+
+        <p class="demo-note">Demo: Use any email and password demo123</p>
 
         <form [formGroup]="form" (ngSubmit)="onSubmit()" class="auth-form">
           <div class="form-row">
@@ -113,6 +115,16 @@ import { AuthService } from '../../services/auth.service';
     </div>
   `,
   styles: [`
+    .demo-note {
+      background: #e7f3ff;
+      border: 1px solid #91d5ff;
+      color: #0050b3;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
     .auth-container {
       display: flex;
       align-items: center;

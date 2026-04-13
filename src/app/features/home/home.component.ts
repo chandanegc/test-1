@@ -3,12 +3,11 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Restaurant } from '../../shared/models/restaurant.model';
-import { FoodCardComponent } from '../../shared/components/food-card/food-card.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule, FoodCardComponent],
+  imports: [CommonModule, RouterModule],
   template: `
     <div class="home">
       <!-- Hero Section -->
